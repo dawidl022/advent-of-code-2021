@@ -1,5 +1,5 @@
 from typing import Callable
-from .direction.direction import *
+from .direction.direction import Direction
 
 
 def run(solution: Callable[[list[tuple[Direction, int]]], int]):
