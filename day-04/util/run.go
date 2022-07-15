@@ -6,11 +6,13 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/dawidl022/advent-of-code-2021/day-04/logic"
 )
 
-func Run(solution func([]int, []*Board) int) {
+func Run(solution func([]int, []*logic.Board) int) {
 	reader := bufio.NewReader(os.Stdin)
-	var boards []*Board
+	var boards []*logic.Board
 
 	line, err := reader.ReadString('\n')
 	if err != nil {
@@ -19,7 +21,7 @@ func Run(solution func([]int, []*Board) int) {
 	numbers := splitAsInts(strings.Trim(line, "\n"), ",")
 	reader.ReadSlice('\n') // skip initial blank line
 
-	currBoard := &Board{}
+	currBoard := &logic.Board{}
 	for {
 		line, err := reader.ReadString('\n')
 		if err != nil {
@@ -28,7 +30,7 @@ func Run(solution func([]int, []*Board) int) {
 		rawData := strings.Trim(line, "\n")
 		if len(rawData) == 0 {
 			boards = append(boards, currBoard)
-			currBoard = &Board{}
+			currBoard = &logic.Board{}
 			continue
 		}
 

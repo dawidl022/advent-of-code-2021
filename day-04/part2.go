@@ -1,11 +1,11 @@
 package main
 
 import (
-	l "github.com/dawidl022/advent-of-code-2021/day-04/logic"
+	"github.com/dawidl022/advent-of-code-2021/day-04/logic"
 	"github.com/dawidl022/advent-of-code-2021/day-04/util"
 )
 
-func solution2(numbers []int, boards []*util.Board) int {
+func solution2(numbers []int, boards []*logic.Board) int {
 	countOfWonBoards := 0
 
 	for _, number := range numbers {
@@ -14,15 +14,15 @@ func solution2(numbers []int, boards []*util.Board) int {
 				continue
 			}
 
-			l.MarkNumberIfPresent(number, board)
+			board.MarkNumberIfPresent(number)
 
-			if l.HasWinningRow(board) {
+			if board.HasWinningLine() {
 				board.Won = true
 				countOfWonBoards++
 			}
 
 			if countOfWonBoards == len(boards) {
-				return number * l.SumOfUnmarkedNumbers(board)
+				return number * board.SumOfUnmarkedNumbers()
 			}
 		}
 	}
