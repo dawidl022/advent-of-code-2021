@@ -3,7 +3,7 @@ from util.types import Board
 MARK = -1
 
 
-def mark_number_if_present(number, board):
+def mark_number_if_present(number: int, board: Board):
     for i in range(len(board)):
         for j in range(len(board[i])):
             if board[i][j] == number:
