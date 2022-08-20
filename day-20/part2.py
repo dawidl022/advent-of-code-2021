@@ -5,7 +5,7 @@ from logic.enhancer import PixelEnhancer
 
 def solution(source_map: list[list[Pixel]], algorithm: list[Pixel]) -> int:
     enhancer = PixelEnhancer(source_map, algorithm)
-    for _ in range(2):
+    for _ in range(50):
         enhancer.enhance()
     return enhancer.lit_pixel_count
 
